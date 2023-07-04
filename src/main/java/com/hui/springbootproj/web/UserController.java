@@ -1,6 +1,9 @@
 package com.hui.springbootproj.web;
 
+import com.hui.springbootproj.mapper.CourseMapper;
+import com.hui.springbootproj.pojo.Course;
 import com.hui.springbootproj.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -8,6 +11,15 @@ import java.util.*;
 @RestController
 @RequestMapping(value="/users")
 public class UserController {
+
+    @Autowired
+    private CourseMapper courseMapper;
+
+    @RequestMapping("/querycourse")
+    public List<Course> queryAllUser(){
+        return courseMapper.queryAllUser();
+    }
+
 
     static Map<Long,User> users = Collections.synchronizedMap(new HashMap<>());
 

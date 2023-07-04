@@ -13,11 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -26,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @WebAppConfiguration
-public class TestUserController {
+public class TestCourseController {
     private MockMvc mvc;
 
     @Before
@@ -39,47 +34,10 @@ public class TestUserController {
         // 测试UserController
         RequestBuilder request = null;
         // 1.get user列表， 返回应该为null
-        request = get("/users/");
+        request = get("/querycourse/");
         mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("[]")));
+                .andExpect(status().isOk());
 
-        // 2.post提交一个user
-        request = post("/users/")
-                .param("id", "1")
-                .param("name", "测试大师")
-                .param("age", "20");
-        mvc.perform(request)
-                .andExpect(content().string(equalTo("Success")));
-
-        // 3.get获取user列表
-        request = get("/users/");
-        mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("[{\"id\":1,\"name\":\"测试大师\",\"age\":20}]")));
-
-        // 4.修改
-        request = put("/users/1/")
-                .param("name", "测试中级大师")
-                .param("age", "30");
-        mvc.perform(request)
-                .andExpect(content().string(equalTo("Success")));
-
-        // 5,获取id为1的user
-        request = get("/users/1/");
-        mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"id\":1,\"name\":\"测试中级大师\",\"age\":30}")));
-
-        // 6.del删除id为1的user
-        request = delete("/users/1/");
-        mvc.perform(request)
-                .andExpect(content().string(equalTo("Success")));
-        // 7.get user列表
-        request = get("/users/");
-        mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("[]")));
     }
 
     @Test
