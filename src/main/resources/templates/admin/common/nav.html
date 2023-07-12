@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+</head>
+<body>
+<!--<nav th:fragment="navigate(active)" id="nav" class="gird-header"  >-->
+<!--    <div class="ui m-container" >-->
+<!--        <div class="ui inverted secondary stackable menu">-->
+<!--            <a href="#" th:href="@{/}" style="max-width: 200px"><h2 class="ui olive header item" style="font-family: STSong">ChenZhen</h2></a>-->
+<!--            <a href="#" th:href="@{/}" class=" m-item item m-mobile-hide" th:classappend="${active=='index'} ? active"><i class="home icon"></i>首页</a>-->
+<!--            <a href="#" th:href="@{/types}" class="m-item item m-mobile-hide" th:classappend="${active=='type'} ? active" target="_blank"><i class="clone outline icon"></i>分类</a>-->
+<!--            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${active=='archives'} ? active" target="_blank"><i class="coffee icon"></i>流年记</a>-->
+<!--            <a href="#" th:href="@{/music}" class="m-item item m-mobile-hide" th:classappend="${active=='music'} ? active" target="_blank"><i class="music icon"></i>音乐盒</a>-->
+<!--            <a href="#" th:href="@{/message}" class="m-item item m-mobile-hide" th:classappend="${active=='message'} ? active" target="_blank"><i class="book icon"></i>留言板</a>-->
+<!--            <a href="#" th:href="@{/friends}" class="m-item item m-mobile-hide" th:classappend="${active=='friends'} ? active" target="_blank"><i class="pencil alternate icon"></i>友人帐</a>-->
+<!--            <a href="#" th:href="@{/picture}" class="olive m-item item m-mobile-hide" th:classappend="${active=='picture'} ? active" target="_blank"><i class="image icon"></i>照片墙</a>-->
+<!--            &lt;!&ndash;            <a href="#" th:href="@{/resources}" class="m-item item m-mobile-hide" th:classappend="${active=='resources'} ? active" target="_blank"><i class="graduation cap icon"></i>资源库</a>&ndash;&gt;-->
+<!--            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${active=='about'} ? active" target="_blank"><i class="info icon"></i>关于我</a>-->
+<!--            <a href="#" th:href="@{/admin}" class="right m-item item ui secondary basic button m-mobile-hide" target="_blank"><i class="sign in icon"></i>登录</a>-->
+
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <a  class="ui menu toggle black icon button m-right-top m-mobile-show">-->
+<!--        <i class="sidebar icon"></i>-->
+<!--    </a>-->
+<!--</nav>-->
+
+<nav  th:fragment="navigate(active)" id="nav" class=" gird-header" >
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+
+            <h2 class="ui olive header item" style="font-family: STSong">后台管理</h2>
+            <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide" th:classappend="${active=='blog'} ? active"><i class="home icon"></i>文章管理</a>
+            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide" th:classappend="${active=='type'} ? active"><i class="clone outline icon"></i>分类管理</a>
+            <!--            <a href="#" th:href="@{/admin/memorys}" class="m-item item m-mobile-hide" th:classappend="${active=='memory'} ? active"><i class="coffee icon"></i>流年记管理</a>-->
+            <a href="#" th:href="@{/admin/friendlinks}" class=" m-item item m-mobile-hide" th:classappend="${active=='friend'} ? active"><i class="pencil alternate icon"></i>友链管理</a>
+            <!--            <a href="#" th:href="@{/admin/pictures}" class=" m-item item m-mobile-hide" th:classappend="${active=='picture'} ? active"><i class="image icon"></i>相册管理</a>-->
+            <!--            <a href="#" th:href="@{/admin/resources}" class="m-item item m-mobile-hide" th:classappend="${active=='resources'} ? active"><i class="graduation cap icon"></i>资源管理</a>-->
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown  item">
+                    <div class="text">
+                        <img class="ui avatar image" src="/static/images/me.jpg" th:src="@{/images/me.jpg}">
+                        <span>IgnorantGirl</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+# \u670D\u52A1\u7AEF\u53E3
+server:
+  port: 1111
+
+spring:
+  datasource:
+    name: blog
+    url: jdbc:mysql://localhost:3306/huitest?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false
+    username: root
+    password: 123456wh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.hui.springbootproj.pojo
+  mapper-locations: mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: info
+    com.hui.springbootproj: debug
+  file:
+    path: log/blog-dev.log

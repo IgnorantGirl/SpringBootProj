@@ -1,0 +1,13 @@
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  profiles:
+    active: dev
+
+
+
+# \u914D\u7F6Elog

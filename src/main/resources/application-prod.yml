@@ -1,0 +1,10 @@
+# 服务端口
+server:
+  port: 3333
+
+logging:
+  level:
+    root: warn
+    com.hui.springbootproj: info
+  file:
+    path: log/blog-pro.log
