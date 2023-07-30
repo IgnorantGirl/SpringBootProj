@@ -84,4 +84,20 @@ public class TestUserController {
         String springBootVersion = SpringBootVersion.getVersion();
         System.out.println(springBootVersion);
     }
+
+    public static void main(String[] args) {
+
+    }
+
+    /**
+     * 小端
+     * */
+    public static int byteToInt(byte[] bytes, int index) {
+        int value = 0;
+        for (int i = 0; i < 4; i++) {
+            int shift = i * 8;
+            value += (bytes[index + i] & 0xFF) << shift;
+        }
+        return value;
+    }
 }
